@@ -1,0 +1,24 @@
+# MySQL para DESENVOLVIMENTO e TESTE (não é configuração de produção).
+# Uso: docker compose up -d   → cria cemita_dev e cemita_test
+services:
+  mysql:
+    image: mysql:8.4
+    restart: unless-stopped
+    environment:
+      MYSQL_ROOT_PASSWORD: root_dev_only
+      MYSQL_DATABASE: cemita_dev
+      MYSQL_USER: cemita
+      MYSQL_PASSWORD: cemita_dev
+      TZ: UTC
+    command: ["--character-set-server=utf8mb4", "--collation-server=utf8mb4_0900_ai_ci", "--default-time-zone=+00:00"]
+    ports:
+      - "3306:3306"
+    volumes:
+      - mysql-data:/var/lib/mysql
+      - ./docker/init-test-db.sql:/docker-entrypoint-initdb.d/01-test-db.sql:ro
+    healthcheck:
+      test: ["CMD", "mysqladmin", "ping", "-h", "127.0.0.1", "-ucemita", "-pcemita_dev"]
+      interval: 5s
+      retries: 20
+volumes:
+  mysql-data:

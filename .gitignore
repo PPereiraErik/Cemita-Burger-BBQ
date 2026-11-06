@@ -1,0 +1,14 @@
+node_modules
+dist
+.DS_Store
+*.local
+# segredos: nunca vão para o GitHub
+.env
+.env.*
+!.env.example
+!.env.test.example
+**/.env
+**/.env.*
+!**/.env.example
+!**/.env.test.example
+*.zip

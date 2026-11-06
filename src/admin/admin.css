@@ -1,0 +1,258 @@
+@import 'tailwindcss';
+
+/* Fontes do design, servidas pelo próprio site (sem Google Fonts: mais rápido e sem enviar dados a terceiros).
+   Arquivos em src/assets/fonts (recorte latino, WOFF), com as licenças OFL/Apache ao lado. */
+@font-face {
+  font-family: 'Germania One';
+  src: url('../assets/fonts/germania-one-400.woff') format('woff');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'Instrument Sans';
+  src: url('../assets/fonts/instrument-sans-variavel.woff') format('woff');
+  font-weight: 400 700;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'DM Mono';
+  src: url('../assets/fonts/dm-mono-400.woff') format('woff');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'DM Mono';
+  src: url('../assets/fonts/dm-mono-500.woff') format('woff');
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'Yellowtail';
+  src: url('../assets/fonts/yellowtail-400.woff') format('woff');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* ==========================================================================
+   PAINEL DA EQUIPE — mesma paleta do site (marrom e creme), feito para trabalhar:
+   fundo papel (texto tinta, contraste 12.5), botões grandes para tablet na cozinha,
+   estado sempre com símbolo + palavra (nunca só cor).
+   ========================================================================== */
+
+@theme {
+  --color-terra: #6b4530;
+  --color-terra-2: #5a3824;
+  --color-tinta: #2b190d;
+  --color-tinta-2: #3a2314;
+  --color-osso: #f4e5c2;
+  --color-osso-2: #e2cca3;
+  --color-papel: #efdcb2;
+  --color-papel-2: #e2c999;
+  --color-papel-3: #f7ead0;
+  --color-caramelo: #c98a3e;
+  --color-caramelo-claro: #f0bd72;
+  --color-caramelo-escuro: #8f5a2a;
+  --color-texto-2: #5c3b20; /* secundário sobre papel: 7.4 */
+  --color-erro: #9b2f1b; /* sobre papel: 6.0 */
+  --color-ok: #2f5a1f; /* sobre papel: 7.0 */
+
+  --font-display: 'Germania One', 'Copperplate', 'Arial Narrow', serif;
+  --font-sans: 'Instrument Sans', system-ui, -apple-system, 'Segoe UI', sans-serif;
+  --font-mono: 'DM Mono', ui-monospace, 'SFMono-Regular', Menlo, monospace;
+}
+
+@layer base {
+  html {
+    background: var(--color-papel-3);
+    color: var(--color-tinta);
+    font-family: var(--font-sans);
+    -webkit-text-size-adjust: 100%;
+  }
+  body {
+    font-size: 1.0625rem;
+    line-height: 1.5;
+    -webkit-font-smoothing: antialiased;
+  }
+  :focus-visible {
+    outline: 3px solid var(--color-caramelo-escuro);
+    outline-offset: 2px;
+    box-shadow: 0 0 0 6px var(--color-papel-3);
+    border-radius: 3px;
+  }
+  button {
+    cursor: pointer;
+  }
+  button:disabled {
+    cursor: not-allowed;
+    opacity: 0.55;
+  }
+  input,
+  select,
+  textarea {
+    font: inherit;
+    color: inherit;
+  }
+  dialog::backdrop {
+    background: rgb(43 25 13 / 0.7);
+  }
+  @media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+      animation: none !important;
+      transition: none !important;
+    }
+  }
+}
+
+@layer components {
+  .adm-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    min-height: 2.9rem;
+    padding: 0 1.1rem;
+    border-radius: 6px;
+    border: 2px solid var(--color-tinta);
+    background: var(--color-tinta);
+    color: var(--color-osso);
+    font-family: var(--font-mono);
+    font-size: 0.9rem;
+    font-weight: 500;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    text-align: center;
+  }
+  .adm-btn:hover:not(:disabled) {
+    background: var(--color-caramelo-claro);
+    color: var(--color-tinta);
+  }
+  .adm-btn.is-ghost {
+    background: transparent;
+    color: var(--color-tinta);
+  }
+  .adm-btn.is-ghost:hover:not(:disabled) {
+    background: var(--color-papel);
+  }
+  .adm-btn.is-danger {
+    background: transparent;
+    color: var(--color-erro);
+    border-color: var(--color-erro);
+  }
+  .adm-btn.is-danger:hover:not(:disabled) {
+    background: var(--color-erro);
+    color: var(--color-papel-3);
+  }
+  .adm-btn.is-big {
+    min-height: 3.6rem;
+    font-size: 1rem;
+    padding: 0 1.4rem;
+  }
+  .adm-input {
+    width: 100%;
+    min-height: 2.9rem;
+    padding: 0.45rem 0.75rem;
+    border: 2px solid var(--color-texto-2);
+    border-radius: 6px;
+    background: #fffaf0;
+  }
+  .adm-input[aria-invalid='true'] {
+    border-color: var(--color-erro);
+  }
+  .adm-label {
+    display: block;
+    font-weight: 600;
+    margin-bottom: 0.3rem;
+  }
+  .adm-hint {
+    display: block;
+    font-size: 0.88rem;
+    color: var(--color-texto-2);
+    margin-top: 0.25rem;
+  }
+  .adm-card {
+    background: #fffaf0;
+    border: 2px solid var(--color-tinta);
+    border-radius: 10px;
+  }
+  .adm-tag {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.3rem;
+    padding: 0.1rem 0.5rem;
+    border-radius: 999px;
+    font-family: var(--font-mono);
+    font-size: 0.78rem;
+    letter-spacing: 0.04em;
+    background: var(--color-papel);
+    color: var(--color-tinta);
+    border: 1px solid var(--color-texto-2);
+  }
+  .adm-tag.is-strong {
+    background: var(--color-tinta);
+    color: var(--color-osso);
+    border-color: var(--color-tinta);
+  }
+  .adm-new {
+    animation: adm-pulse 1.4s ease-in-out 3;
+  }
+}
+
+@keyframes adm-pulse {
+  0%,
+  100% {
+    box-shadow: 0 0 0 0 rgb(201 138 62 / 0);
+  }
+  50% {
+    box-shadow: 0 0 0 8px rgb(201 138 62 / 0.55);
+  }
+}
+
+/* ── cupom impresso (impressora térmica): só o cupom sai no papel ── */
+#print-area {
+  display: none;
+}
+@media print {
+  @page {
+    size: 80mm auto;
+    margin: 3mm;
+  }
+  html,
+  body {
+    background: #fff;
+  }
+  body > *:not(#print-area) {
+    display: none;
+  }
+  #print-area {
+    display: block;
+    width: 72mm;
+    color: #000;
+    background: #fff;
+    font: 13px/1.35 'DM Mono', ui-monospace, monospace;
+  }
+  #print-area p {
+    margin: 0;
+    white-space: pre-wrap;
+    overflow-wrap: anywhere;
+  }
+  #print-area .strong {
+    font-weight: 700;
+  }
+  #print-area .big {
+    font-size: 22px;
+    font-weight: 700;
+    letter-spacing: 0.05em;
+  }
+  #print-area hr {
+    border: 0;
+    border-top: 1px dashed #000;
+    margin: 6px 0;
+  }
+}

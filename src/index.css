@@ -1,0 +1,1602 @@
+@import 'tailwindcss';
+
+/* Fontes do design, servidas pelo próprio site (sem Google Fonts: mais rápido e sem enviar dados a terceiros).
+   Arquivos em src/assets/fonts (recorte latino, WOFF), com as licenças OFL/Apache ao lado. */
+@font-face {
+  font-family: 'Germania One';
+  src: url('./assets/fonts/germania-one-400.woff') format('woff');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'Instrument Sans';
+  src: url('./assets/fonts/instrument-sans-variavel.woff') format('woff');
+  font-weight: 400 700;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'DM Mono';
+  src: url('./assets/fonts/dm-mono-400.woff') format('woff');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'DM Mono';
+  src: url('./assets/fonts/dm-mono-500.woff') format('woff');
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'Yellowtail';
+  src: url('./assets/fonts/yellowtail-400.woff') format('woff');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* ==========================================================================
+   CEMITA — sistema visual (atualização de 20/10/2026: lápides e polaroids)
+   Marrom-escuro no fundo, creme na tinta, laranja nos destaques. Gravuras em traço creme.
+
+   PALETA (nomes usados no código)
+   - fundo ............. #24150d  fundo da página e do cardápio
+   - secao ............. #5a3a24  seções alternadas (Início, A História)
+   - barra ............. #1a0f09  barra lateral, barras do celular, rodapé
+   - lapide ............ #2e1b11  superfície da pedra (frente)   · lapide-2 #3a2316 (verso, base)
+   - creme ............. #efe4cc  texto                          · creme-2 #b4a78f (secundário)
+   - creme-3 ........... #e3d6bc  secundário sobre a cor "secao" (o #b4a78f ali fica abaixo de 4.5:1)
+   - laranja ........... #ffb766  destaques, hover, foco
+   - mostarda .......... #d9a23a  faixa que corre
+   - papel ............. #efe6d2  botões claros, comanda, janelas · polaroid #f3ebdc
+   - tinta ............. #241a14  texto sobre claro
+   - vinho ............. #8a2b1d  carimbos, virada de título no laranja
+   Contrastes (WCAG): creme/fundo 14.0 · creme-2/fundo 7.5 · laranja/fundo 10.3 · creme/secao 8.1 ·
+   creme-3/secao 7.1 · laranja/secao 5.9 · creme-2/lapide 6.9 · tinta/mostarda 7.5 · tinta/laranja 9.9 ·
+   vinho/laranja 5.0 · tinta/papel 13.7.
+
+   TOKENS DE CONTEXTO (mudam conforme o fundo; comanda, checkout e painéis usam estes)
+   Três contextos: a página (escuro), .paper/.sheet (papel, texto escuro) e .tinta (barra).
+   - bone: fundo · char: tinta do contexto · mute: secundário · sheet: papel
+   - lilac: preenchimento de destaque · lilac-ink: texto de destaque · blood: erro (sempre com ⚠ e texto)
+
+   Tipo (quatro famílias, papéis fixos)
+   - Germania One ....... títulos, nomes de lanche, categorias
+   - DM Mono ............ rótulos, botões, preços (algarismos tabulares)
+   - Instrument Sans .... texto corrido
+   - Yellowtail ......... legenda manuscrita das polaroids
+   ========================================================================== */
+@theme {
+  /* paleta */
+  --color-fundo: #24150d;
+  --color-secao: #5a3a24;
+  --color-barra: #1a0f09;
+  --color-lapide: #2e1b11;
+  --color-lapide-2: #3a2316;
+  --color-creme: #efe4cc;
+  --color-creme-2: #b4a78f;
+  --color-creme-3: #e3d6bc;
+  --color-laranja: #ffb766;
+  --color-mostarda: #d9a23a;
+  --color-papel: #efe6d2;
+  --color-papel-2: #e2d6bd;
+  --color-polaroid: #f3ebdc;
+  --color-tinta: #241a14;
+  --color-tinta-2: #3a2316;
+  --color-vinho: #8a2b1d;
+
+  /* nomes antigos ainda usados por painéis e pelo modo TV (mesmos tons da paleta nova) */
+  --color-terra: #5a3a24;
+  --color-terra-2: #4a2f1d;
+  --color-osso: #efe4cc;
+  --color-osso-2: #b4a78f;
+  --color-caramelo: #d9a23a;
+  --color-caramelo-claro: #ffb766;
+  --color-caramelo-escuro: #8a2b1d;
+  --color-grave: #24150d;
+  --color-grave-deep: #1a0f09;
+  --color-butter: #efe4cc;
+  --color-cream: #efe4cc;
+  --color-cream-dim: #b4a78f;
+  --color-glow: #ffb766;
+  --color-oxblood: #8a2b1d;
+  --color-paper: #efe6d2;
+  --color-paper-ink: #241a14;
+
+  /* tokens de contexto: a página (escuro) */
+  --color-bone: #24150d;
+  --color-bone-2: #5a3a24;
+  --color-sheet: #efe6d2;
+  --color-char: #efe4cc;
+  --color-char-2: #1a0f09;
+  --color-mute: #b4a78f;
+  --color-lilac: #5a3a24;
+  --color-lilac-ink: #ffb766;
+  --color-blood: #ffb49a;
+  --color-tag-bg: #ffb766;
+  --color-tag-ink: #241a14;
+
+  --font-display: 'Germania One', 'Copperplate', 'Arial Narrow', serif;
+  --font-sans: 'Instrument Sans', system-ui, -apple-system, 'Segoe UI', sans-serif;
+  --font-mono: 'DM Mono', ui-monospace, 'SFMono-Regular', Menlo, monospace;
+  --font-hand: 'Yellowtail', 'Brush Script MT', cursive;
+
+  --ease-cine: cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+@layer base {
+  html {
+    /* --a11y-scale vem do painel de acessibilidade (1 = padrão) */
+    --screen-scale: 1;
+    --focus: #ffb766;
+    font-size: calc(100% * var(--screen-scale) * var(--a11y-scale, 1));
+    background: var(--color-bone);
+    color: var(--color-char);
+    overflow-x: clip;
+    -webkit-text-size-adjust: 100%;
+    scroll-behavior: smooth;
+  }
+  /* TV e telas grandes: tudo maior, para ler de longe */
+  @media (min-width: 1800px) {
+    html {
+      --screen-scale: 1.18;
+    }
+  }
+  @media (min-width: 2400px) {
+    html {
+      --screen-scale: 1.4;
+    }
+  }
+  body {
+    font-family: var(--font-sans);
+    font-size: 1rem;
+    line-height: 1.55;
+    background: var(--color-bone);
+    overflow-x: clip;
+    -webkit-font-smoothing: antialiased;
+  }
+  ::selection {
+    background: var(--color-laranja);
+    color: var(--color-tinta);
+  }
+  /* foco: 2px laranja (tinta sobre fundo claro) */
+  :focus-visible {
+    outline: 2px solid var(--focus);
+    outline-offset: 3px;
+    border-radius: 2px;
+  }
+  h1,
+  h2,
+  h3 {
+    text-wrap: balance;
+  }
+  p {
+    text-wrap: pretty;
+  }
+  button {
+    cursor: pointer;
+  }
+  [id] {
+    scroll-margin-top: 5rem;
+  }
+}
+
+/* ----- contextos de cor ----- */
+/* papel: comanda, janelas e painéis (texto escuro sobre papel) */
+.paper,
+.sheet {
+  --focus: #241a14;
+  --color-bone: #f6efe1;
+  --color-bone-2: #e2d6bd;
+  --color-sheet: #efe6d2;
+  --color-char: #241a14;
+  --color-mute: #5c4632;
+  --color-lilac: #ffb766;
+  --color-lilac-ink: #8a2b1d;
+  --color-blood: #9b2f1b;
+  --color-tag-bg: #ffb766;
+  --color-tag-ink: #241a14;
+}
+/* tinta: barras e rodapé */
+.tinta {
+  --color-bone: #1a0f09;
+  --color-bone-2: #2e1b11;
+  --color-char: #efe4cc;
+  --color-mute: #b4a78f;
+  --color-lilac: #3a2316;
+  --color-lilac-ink: #ffb766;
+  --color-blood: #ffb49a;
+  --color-tag-bg: #ffb766;
+  --color-tag-ink: #241a14;
+}
+/* seção marrom-clara (Início, A História): secundário mais claro para manter 4.5:1 */
+.secao {
+  --color-bone: #5a3a24;
+  --color-mute: #e3d6bc;
+  --color-lilac: #3a2316;
+}
+/* seção laranja (Joinville em Dobro): tinta escura e foco escuro */
+.laranja {
+  --focus: #241a14;
+  --color-bone: #ffb766;
+  --color-char: #241a14;
+  --color-mute: #241a14;
+  --color-lilac-ink: #8a2b1d;
+}
+
+/* textura de impressão: papel envelhecido nos cartões */
+.paper-grain {
+  background-image:
+    radial-gradient(120% 90% at 50% 0%, rgb(255 255 255 / 0.22), transparent 60%),
+    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='180' height='180'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.8' numOctaves='2' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 .35  0 0 0 0 .22  0 0 0 0 .1  0 0 0 .18 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+}
+
+/* grão de papel, bem leve */
+body::after {
+  content: '';
+  position: fixed;
+  inset: 0;
+  z-index: 95;
+  pointer-events: none;
+  opacity: 0.09;
+  mix-blend-mode: multiply;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='2' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 .16  0 0 0 0 .09  0 0 0 0 .04  0 0 0 .8 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+}
+
+@layer components {
+  /* ----- tipografia ----- */
+  .t-display {
+    font-family: var(--font-display);
+    font-weight: 400;
+    line-height: 0.98;
+    letter-spacing: 0.005em;
+  }
+  .t-label {
+    font-family: var(--font-mono);
+    font-size: 0.78rem;
+    font-weight: 500;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+  }
+  .t-mono,
+  .t-price {
+    font-family: var(--font-mono);
+    font-variant-numeric: tabular-nums;
+  }
+  .t-price {
+    font-weight: 500;
+    letter-spacing: -0.01em;
+    white-space: nowrap;
+  }
+  /* compatibilidade com a cripta e o cemitério */
+  .t-gothic,
+  .t-sign {
+    font-family: var(--font-display);
+    font-weight: 400;
+    line-height: 1;
+  }
+  .t-italic {
+    font-family: var(--font-display);
+    font-weight: 400;
+  }
+
+  /* ----- botões: o ticket picotado é o botão da marca ----- */
+  .btn-ticket {
+    --tk-bg: var(--color-char);
+    --tk-fg: var(--color-bone);
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.6rem;
+    min-height: 3.25rem;
+    padding: 0 1.6rem;
+    font-family: var(--font-mono);
+    font-size: 0.86rem;
+    font-weight: 500;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    text-align: center;
+    text-wrap: balance;
+    color: var(--tk-fg);
+    background: var(--tk-bg);
+    border: 0;
+    -webkit-mask:
+      radial-gradient(circle 6px at 0 50%, #0000 98%, #000) left / 51% 100% no-repeat,
+      radial-gradient(circle 6px at 100% 50%, #0000 98%, #000) right / 51% 100% no-repeat;
+    mask:
+      radial-gradient(circle 6px at 0 50%, #0000 98%, #000) left / 51% 100% no-repeat,
+      radial-gradient(circle 6px at 100% 50%, #0000 98%, #000) right / 51% 100% no-repeat;
+    transition: background-color 0.2s, color 0.2s, transform 0.15s;
+  }
+  /* passar o mouse: o ticket "esquenta" (caramelo com tinta escura em qualquer contexto) */
+  .btn-ticket:hover {
+    --tk-bg: var(--color-caramelo-claro);
+    --tk-fg: var(--color-tinta);
+  }
+  .btn-ticket:active {
+    transform: scale(0.97);
+  }
+  .btn-ticket.is-light {
+    --tk-bg: var(--color-osso);
+    --tk-fg: var(--color-tinta);
+  }
+  .btn-ticket.is-light:hover,
+  .btn-ticket.is-lilac {
+    --tk-bg: var(--color-caramelo-claro);
+    --tk-fg: var(--color-tinta);
+  }
+  .btn-ticket.is-lilac:hover {
+    --tk-bg: var(--color-osso);
+    --tk-fg: var(--color-tinta);
+  }
+  /* ticket escuro (sobre papel ou creme) */
+  .btn-ticket.is-dark {
+    --tk-bg: var(--color-tinta);
+    --tk-fg: var(--color-osso);
+  }
+  /* link de ação secundária */
+  .btn-line {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    min-height: 3rem;
+    padding: 0 0.15rem;
+    font-family: var(--font-mono);
+    font-size: 0.86rem;
+    font-weight: 500;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: inherit;
+    text-decoration: underline;
+    text-decoration-thickness: 2px;
+    text-underline-offset: 6px;
+    transition: text-decoration-color 0.2s, color 0.2s;
+  }
+  .btn-line:hover {
+    text-decoration-color: var(--color-lilac-ink);
+  }
+
+  /* ----- objetos de papel ----- */
+  .sheet {
+    background: var(--color-sheet);
+    color: var(--color-char);
+  }
+  /* borda inferior serrilhada da comanda */
+  .zigzag {
+    -webkit-mask:
+      linear-gradient(#000 calc(100% - 10px), transparent calc(100% - 10px)),
+      conic-gradient(from -45deg at 50% calc(100% - 10px), #000 90deg, transparent 0) 0 100% / 16px 10px repeat-x;
+    mask:
+      linear-gradient(#000 calc(100% - 10px), transparent calc(100% - 10px)),
+      conic-gradient(from -45deg at 50% calc(100% - 10px), #000 90deg, transparent 0) 0 100% / 16px 10px repeat-x;
+  }
+  /* linha de pontos do cardápio (nome ........ preço) */
+  .leader {
+    flex: 1;
+    min-width: 1.5rem;
+    border-bottom: 2px dotted currentColor;
+    opacity: 0.35;
+    transform: translateY(-0.3em);
+  }
+  /* divisor ondulado desenhado à mão */
+  .rule-wavy {
+    height: 12px;
+    background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='12'%3E%3Cpath d='M0 6 Q15 0 30 6 T60 6 T90 6 T120 6' fill='none' stroke='%233b393e' stroke-width='2'/%3E%3C/svg%3E") repeat-x left center / 120px 12px;
+  }
+  .rule-wavy.is-light {
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='12'%3E%3Cpath d='M0 6 Q15 0 30 6 T60 6 T90 6 T120 6' fill='none' stroke='%23fcf4c5' stroke-width='2'/%3E%3C/svg%3E");
+  }
+  /* etiqueta/badge */
+  .tag {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.35em;
+    padding: 0.3em 0.75em;
+    border-radius: 999px;
+    font-family: var(--font-mono);
+    font-size: 0.72rem;
+    font-weight: 500;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    background: var(--color-tag-bg);
+    color: var(--color-tag-ink);
+  }
+  .tag.is-outline {
+    color: inherit;
+    background: transparent;
+    box-shadow: inset 0 0 0 1.5px currentColor;
+  }
+
+  /* ilustração da marca recolorível (máscara) */
+  .art {
+    display: block;
+    background-color: currentColor;
+    -webkit-mask: var(--art) center / contain no-repeat;
+    mask: var(--art) center / contain no-repeat;
+  }
+
+  /* cripta (cena do caixão) */
+  .metal {
+    background: linear-gradient(180deg, #3b3833, #23211e 45%, #151412 100%);
+    box-shadow: inset 0 1px 0 rgb(255 255 255 / 0.12), inset 0 -2px 6px rgb(0 0 0 / 0.6);
+  }
+  .stone {
+    background:
+      radial-gradient(120% 80% at 30% 15%, rgb(255 255 255 / 0.12), transparent 50%),
+      linear-gradient(180deg, #7a736a, #57514a 55%, #3a3531);
+  }
+  .wood {
+    background-color: #2b1a11;
+    background-image:
+      repeating-linear-gradient(91deg, rgb(255 220 180 / 0.035) 0 2px, transparent 2px 9px, rgb(0 0 0 / 0.12) 9px 10px, transparent 10px 17px),
+      linear-gradient(180deg, #4a2d1d, #2a170e 55%, #1c0f09);
+  }
+}
+
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+.no-scrollbar {
+  scrollbar-width: none;
+}
+
+/* ----- movimento: só feedback ----- */
+@keyframes pop-in {
+  0% {
+    transform: scale(0.7);
+    opacity: 0;
+  }
+  70% {
+    transform: scale(1.06);
+    opacity: 1;
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+@keyframes rise-up {
+  from {
+    opacity: 0;
+    transform: translateY(16px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+@keyframes slide-up {
+  from {
+    transform: translateY(100%);
+  }
+  to {
+    transform: none;
+  }
+}
+@keyframes bump {
+  0%,
+  100% {
+    transform: none;
+  }
+  40% {
+    transform: scale(1.18) rotate(-6deg);
+  }
+}
+@keyframes fade-away {
+  to {
+    opacity: 0;
+    visibility: hidden;
+  }
+}
+@keyframes bulb {
+  0%,
+  100% {
+    opacity: 0.9;
+  }
+  50% {
+    opacity: 0.65;
+  }
+}
+@keyframes tv-progress {
+  from {
+    transform: scaleX(0);
+  }
+  to {
+    transform: scaleX(1);
+  }
+}
+
+@keyframes intro-stamp {
+  0% {
+    opacity: 0;
+    transform: scale(1.4);
+  }
+  60% {
+    opacity: 1;
+    transform: scale(0.93);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+/* Entrada: só o topo se arruma, em menos de 1 s, sem bloquear nada (ver Mesa.tsx). */
+.intro-in {
+  animation: rise-up 0.45s var(--ease-cine) both;
+  animation-delay: calc(var(--i, 0) * 70ms);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+/* ==========================================================================
+   ACESSIBILIDADE — opções do painel (src/lib/a11y.ts → atributos no <html>)
+   ========================================================================== */
+
+/* reduzir animações (igual à preferência do sistema) */
+html[data-a11y-motion='reduce'] {
+  scroll-behavior: auto;
+}
+html[data-a11y-motion='reduce'] *,
+html[data-a11y-motion='reduce'] *::before,
+html[data-a11y-motion='reduce'] *::after {
+  animation-duration: 0.01ms !important;
+  animation-delay: 0ms !important;
+  animation-iteration-count: 1 !important;
+  transition-duration: 0.01ms !important;
+}
+
+/* alto contraste: preto no branco, sem transparências no texto e nas bordas */
+/* página e capítulos escuros: branco no preto */
+html[data-a11y-contrast],
+html[data-a11y-contrast] .tinta {
+  --color-bone: #000000;
+  --color-bone-2: #000000;
+  --color-sheet: #ffffff;
+  --color-char: #ffffff;
+  --color-char-2: #000000;
+  --color-mute: #ffffff;
+  --color-lilac: #000000;
+  --color-lilac-ink: #ffe08a;
+  --color-blood: #ffb3a1;
+  --color-tag-bg: #ffffff;
+  --color-tag-ink: #000000;
+  --color-grave: #000000;
+  --color-grave-deep: #000000;
+  --color-butter: #ffffff;
+  --color-terra: #000000;
+  --color-terra-2: #000000;
+}
+/* papel: preto no branco */
+html[data-a11y-contrast] .paper,
+html[data-a11y-contrast] .sheet {
+  --color-bone: #ffffff;
+  --color-bone-2: #f1f1f1;
+  --color-sheet: #ffffff;
+  --color-char: #000000;
+  --color-mute: #000000;
+  --color-lilac: #ffffff;
+  --color-lilac-ink: #000000;
+  --color-blood: #8b0000;
+  --color-tag-bg: #000000;
+  --color-tag-ink: #ffffff;
+}
+html[data-a11y-contrast] .paper-grain {
+  background-image: none;
+}
+html[data-a11y-contrast] .illus {
+  filter: grayscale(1) brightness(1.6) contrast(1.4);
+}
+html[data-a11y-contrast] body::after {
+  display: none;
+}
+html[data-a11y-contrast] [class*='text-bone/'] {
+  color: var(--color-bone) !important;
+}
+html[data-a11y-contrast] [class*='text-butter/'],
+html[data-a11y-contrast] [class*='text-osso'] {
+  color: var(--color-butter) !important;
+}
+html[data-a11y-contrast] [class*='text-char/'],
+html[data-a11y-contrast] [class*='text-mute'] {
+  color: var(--color-char) !important;
+}
+html[data-a11y-contrast] [class*='text-grave/'] {
+  color: var(--color-grave) !important;
+}
+html[data-a11y-contrast] [class*='border-char/'] {
+  border-color: var(--color-char) !important;
+}
+html[data-a11y-contrast] [class*='border-bone/'],
+html[data-a11y-contrast] [class*='border-lilac/'],
+html[data-a11y-contrast] [class*='border-osso/'] {
+  border-color: var(--color-char) !important;
+}
+html[data-a11y-contrast] .leader {
+  opacity: 0.8;
+}
+
+/* destaque de foco: anel grosso preto e amarelo em qualquer foco (mouse e teclado) */
+html[data-a11y-focus] :focus,
+html[data-a11y-focus] :focus-visible {
+  outline: 4px solid #000 !important;
+  outline-offset: 3px !important;
+  box-shadow: 0 0 0 9px #ffd400 !important;
+  border-radius: 4px;
+}
+
+/* espaçamento de texto (valores do critério WCAG 1.4.12) */
+html[data-a11y-spacing] :is(p, li, dd, dt, label, textarea, input, .text-mute) {
+  line-height: 1.8 !important;
+  letter-spacing: 0.12em !important;
+  word-spacing: 0.16em !important;
+}
+html[data-a11y-spacing] p {
+  margin-block-end: 0.6em;
+}
+
+/* não depender de cor: links sempre sublinhados e o que está escolhido ganha ✓ */
+html[data-a11y-colorsafe] main a:not(.btn-ticket),
+html[data-a11y-colorsafe] footer a {
+  text-decoration: underline !important;
+  text-decoration-thickness: 2px !important;
+  text-underline-offset: 4px;
+}
+html[data-a11y-colorsafe] [aria-pressed='true']::before,
+html[data-a11y-colorsafe] [aria-current]::before,
+html[data-a11y-colorsafe] [role='switch'][aria-checked='true'] .switch-state::before {
+  content: '✓ ';
+}
+html[data-a11y-colorsafe] [aria-pressed='true'],
+html[data-a11y-colorsafe] [aria-current] {
+  text-decoration: underline;
+  text-underline-offset: 4px;
+}
+
+/* fonte simples nos títulos (no lugar da gótica) */
+html[data-a11y-font='simple'] {
+  --font-display: 'Instrument Sans', system-ui, -apple-system, 'Segoe UI', sans-serif;
+}
+html[data-a11y-font='simple'] :is(.t-display, .t-gothic, .t-sign, .t-italic) {
+  font-weight: 700;
+  line-height: 1.12;
+  letter-spacing: -0.01em;
+}
+
+/* ==========================================================================
+   SITE (20/10/2026) — barra lateral, polaroids, faixa, lápides
+   ========================================================================== */
+
+/* fonte manuscrita das polaroids; em "fonte simples" vira a fonte do texto */
+.t-hand {
+  font-family: var(--font-hand);
+  font-weight: 400;
+}
+html[data-a11y-font='simple'] .t-hand {
+  font-family: var(--font-sans);
+  font-style: italic;
+}
+
+/* rótulo pequeno em mono (Nº 01 — cardápio, ONDE FICA…) */
+.t-kicker {
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  letter-spacing: 0.14em;
+}
+
+/* esqueleto: barra lateral (computador) + conteúdo */
+:root {
+  --topbar: 0px;
+  --bottombar: 0px;
+  /* o que recebe foco nunca fica escondido atrás das barras fixas */
+  scroll-padding-top: var(--topbar);
+  scroll-padding-bottom: var(--bottombar);
+}
+@media (max-width: 1023.98px) {
+  :root {
+    --topbar: 70px;
+    --bottombar: calc(72px + env(safe-area-inset-bottom));
+  }
+}
+/* a barra do topo já entra pelo scroll-padding do :root */
+[id] {
+  scroll-margin-top: 12px;
+}
+#cardapio {
+  scroll-margin-top: 0;
+}
+
+/* botão claro da marca (papel) e botão de contorno */
+.btn-papel {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.6rem;
+  min-height: 3.5rem;
+  padding: 0 2rem;
+  background: var(--color-papel);
+  color: var(--color-tinta);
+  border-radius: 2px;
+  font-family: var(--font-mono);
+  font-size: 0.875rem;
+  font-weight: 500;
+  letter-spacing: 0.14em;
+  text-decoration: none;
+  transition: background-color 0.2s, transform 0.2s;
+}
+.btn-papel:hover {
+  background: var(--color-laranja);
+}
+
+/* ----- polaroids ----- */
+.polaroid {
+  position: absolute;
+  background: var(--color-polaroid);
+  padding: clamp(8px, 1.1vw, 12px) clamp(8px, 1.1vw, 12px) clamp(30px, 3.6vw, 44px);
+  border-radius: 2px;
+  box-shadow: 0 18px 40px -12px rgb(0 0 0 / 0.8);
+  transition: transform 0.5s var(--ease-cine);
+  margin: 0;
+}
+.polaroid:hover {
+  transform: rotate(0deg) scale(1.03) !important;
+  z-index: 5;
+}
+/* fita adesiva */
+.polaroid .fita {
+  position: absolute;
+  top: -10px;
+  width: 34%;
+  height: 22px;
+  background: rgb(239 228 204 / 0.6);
+  z-index: 2;
+}
+.polaroid .janela {
+  position: relative;
+  overflow: hidden;
+  background: #1e1814;
+}
+.polaroid .janela > img,
+.polaroid .janela > video {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+/* troca de foto: a nova aparece por cima da anterior */
+.polaroid .janela > .entra {
+  animation: polaroid-in 0.9s var(--ease-cine) both;
+}
+@keyframes polaroid-in {
+  from {
+    opacity: 0;
+    transform: scale(1.06);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+.polaroid figcaption,
+.polaroid .legenda {
+  position: absolute;
+  left: 7%;
+  right: 7%;
+  bottom: 3%;
+  font-family: var(--font-hand);
+  font-size: clamp(15px, 1.6vw, 20px);
+  line-height: 1.2;
+  color: var(--color-tinta);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+html[data-a11y-font='simple'] .polaroid :is(figcaption, .legenda) {
+  font-family: var(--font-sans);
+  font-style: italic;
+}
+
+/* ----- gravuras que flutuam ----- */
+@keyframes flutua {
+  0%,
+  100% {
+    transform: translateY(0) rotate(-4deg);
+  }
+  50% {
+    transform: translateY(-10px) rotate(3deg);
+  }
+}
+.flutua {
+  animation: flutua 5s ease-in-out infinite;
+}
+
+/* ----- faixa que corre ----- */
+@keyframes faixa {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
+}
+.faixa-trilho {
+  animation: faixa 40s linear infinite;
+}
+
+/* ----- lápides ----- */
+.lapide {
+  position: relative;
+  container-type: inline-size;
+  aspect-ratio: 300 / 440;
+  perspective: 1100px;
+  min-width: 0;
+}
+.lapide-giro {
+  position: absolute;
+  inset: 0;
+  transform-style: preserve-3d;
+  transition: transform 0.55s var(--ease-cine);
+}
+.lapide.virada .lapide-giro {
+  transform: rotateY(180deg);
+}
+.lapide-face {
+  position: absolute;
+  inset: 0;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  background: transparent;
+  color: var(--color-creme);
+  font: inherit;
+  text-align: center;
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+}
+.lapide-verso {
+  transform: rotateY(180deg);
+}
+.lapide-pedra {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+}
+/* área de texto: sempre dentro da pedra (o conteúdo nunca vaza: ver Tombstone.tsx) */
+.lapide-dentro {
+  position: absolute;
+  left: 15%;
+  right: 15%;
+  top: 19%;
+  bottom: 14%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: 0.35em;
+  overflow: hidden;
+}
+.lapide-dentro > * {
+  /* nada encolhe escondido: se não couber, o useCabe percebe e ajusta */
+  flex-shrink: 0;
+}
+.lapide-frente .lapide-dentro {
+  /* dentro do contorno interno da pedra (a foto não passa por cima das linhas) */
+  top: 13%;
+}
+/* modelo 2 tem grama na base: o texto da base sobe para não ficar sobre ela */
+.lapide[data-v='2'] .lapide-base {
+  bottom: 6.5%;
+}
+.lapide[data-v='2'] .lapide-verso .lapide-dentro {
+  bottom: 24%;
+}
+/* verso: espaço embaixo para os botões da base (alvos de 44px) */
+.lapide-verso .lapide-dentro {
+  top: 17%;
+  bottom: 20%;
+}
+.lapide-base {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 1.5%;
+  align-items: flex-end;
+  display: flex;
+  justify-content: center;
+}
+.lapide-foto {
+  position: relative;
+  width: calc(100% * var(--foto, 1));
+  aspect-ratio: 5 / 4;
+  flex: 0 0 auto;
+  overflow: hidden;
+  border-radius: 50% 50% 4px 4px / 40% 40% 4px 4px;
+  background: #4a3222;
+}
+.lapide-frente .lapide-foto {
+  /* frente: proporção perto da das fotos do cardápio (paisagem, ~4:3): o lanche aparece inteiro, sem cortar as laterais */
+  aspect-ratio: 5 / 4;
+}
+/* entradas e acompanhamentos: foto maior (quadrada), emoldurada em creme, produto em evidência */
+.lapide.is-destaque .lapide-frente .lapide-foto {
+  aspect-ratio: 1 / 1;
+  border: 2px solid var(--color-creme);
+  box-shadow:
+    0 0 0 4px var(--color-lapide),
+    0 10px 18px -8px rgb(0 0 0 / 0.9);
+}
+.lapide.is-destaque .lapide-frente .lapide-foto img {
+  transition: scale 0.3s var(--ease-cine);
+}
+@media (hover: hover) and (prefers-reduced-motion: no-preference) {
+  .lapide.is-destaque .lapide-frente:hover .lapide-foto img {
+    scale: 1.05;
+  }
+}
+.lapide-foto img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.lapide-nome {
+  font-family: var(--font-display);
+  line-height: 1.04;
+  overflow-wrap: anywhere;
+}
+/* letra entalhada na pedra: sombra escura em cima, luz fraca embaixo */
+.entalhe {
+  text-shadow:
+    0 -1px 0 rgb(0 0 0 / 0.7),
+    0 1px 0 rgb(239 228 204 / 0.14);
+}
+/* "R · I · P" gravado no pé da pedra, embaixo do texto, só quando sobra espaço */
+.lapide-rip[hidden] {
+  display: none;
+}
+.lapide-rip {
+  margin-top: auto;
+  padding-top: 0.4em;
+  font-family: var(--font-mono);
+  font-size: clamp(8px, 3cqi, 11px);
+  letter-spacing: 0.3em;
+  color: var(--color-creme-2);
+  opacity: 0.8;
+}
+/* sombra no chão e leve subida ao passar o mouse (propriedade translate: não briga com a animação de entrada) */
+.lapide::after {
+  content: '';
+  position: absolute;
+  left: 4%;
+  right: 4%;
+  bottom: -2.5%;
+  height: 5%;
+  z-index: -1;
+  border-radius: 50%;
+  background: radial-gradient(closest-side, rgb(0 0 0 / 0.55), transparent);
+  pointer-events: none;
+}
+.lapide {
+  transition: translate 0.25s var(--ease-cine);
+}
+@media (hover: hover) {
+  .lapide:not(.virada):hover {
+    translate: 0 -4px;
+  }
+}
+.lapide-preco {
+  font-family: var(--font-mono);
+  color: var(--color-laranja);
+  font-variant-numeric: tabular-nums;
+  white-space: nowrap;
+}
+.lapide-frente:focus-visible,
+.lapide-verso :focus-visible {
+  outline-offset: -2px;
+}
+@keyframes lapide-sobe-a {
+  0% {
+    opacity: 0;
+    transform: translateY(40px) rotate(-3deg);
+  }
+  65% {
+    opacity: 1;
+    transform: translateY(-5px) rotate(1deg);
+  }
+  100% {
+    opacity: 1;
+    transform: none;
+  }
+}
+/* mesma animação com outro nome: trocar de categoria reinicia a subida */
+@keyframes lapide-sobe-b {
+  0% {
+    opacity: 0;
+    transform: translateY(40px) rotate(-3deg);
+  }
+  65% {
+    opacity: 1;
+    transform: translateY(-5px) rotate(1deg);
+  }
+  100% {
+    opacity: 1;
+    transform: none;
+  }
+}
+.sobe-a {
+  animation: lapide-sobe-a 0.7s var(--ease-cine) both;
+}
+.sobe-b {
+  animation: lapide-sobe-b 0.7s var(--ease-cine) both;
+}
+
+/* pedra estreita (celular): sem o "AQUI JAZ" e o traço, para sobrar lugar para os ingredientes */
+@container (max-width: 200px) {
+  .so-largo {
+    display: none;
+  }
+}
+
+/* grade de lápides: 1 coluna no celular (lápide de tamanho médio, centralizada), 2 a 4 conforme a largura do conteúdo */
+.cardapio-grade {
+  container-type: inline-size;
+}
+/* ----- menu impresso (modelo 'prato'): foto que se dissolve no fundo, nome, preço e descrição à vista ----- */
+.grade-pratos {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 30px 14px;
+}
+@container (min-width: 600px) {
+  .grade-pratos {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 46px 28px;
+  }
+}
+@container (min-width: 1080px) {
+  .grade-pratos {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+  }
+}
+.prato {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 6px;
+  min-width: 0;
+  text-align: center;
+  container-type: inline-size;
+}
+.prato-abre {
+  display: flex;
+  width: 100%;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+  color: inherit;
+}
+/* a foto se dissolve nas bordas: o prato parece solto sobre o fundo, sem recortar o produto */
+.prato-foto {
+  display: block;
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  overflow: hidden;
+  -webkit-mask-image: radial-gradient(closest-side, #000 56%, transparent 100%);
+  mask-image: radial-gradient(closest-side, #000 56%, transparent 100%);
+}
+.prato-foto img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: scale 0.35s var(--ease-cine);
+}
+.prato-sem-foto {
+  display: grid;
+  height: 100%;
+  place-items: center;
+  background: var(--color-lapide-2);
+  font-family: var(--font-mono);
+  font-size: 0.7rem;
+  letter-spacing: 0.14em;
+  color: var(--color-creme-3);
+}
+.prato-nome {
+  font-family: var(--font-display);
+  font-size: clamp(1.05rem, 8.4cqi, 1.65rem);
+  line-height: 1.05;
+  color: var(--color-creme);
+  overflow-wrap: anywhere;
+  text-shadow: 0 2px 6px rgb(0 0 0 / 0.6);
+}
+.prato-preco {
+  font-size: clamp(0.85rem, 6.2cqi, 1.15rem);
+  font-weight: 500;
+}
+.prato-desc {
+  margin: 0;
+  max-width: 34ch;
+  font-size: clamp(0.78rem, 5.6cqi, 0.95rem);
+  line-height: 1.4;
+  color: var(--color-creme-3);
+}
+@media (hover: hover) and (prefers-reduced-motion: no-preference) {
+  .prato-abre:hover .prato-foto img {
+    scale: 1.04;
+  }
+  .prato-abre:hover .prato-nome {
+    color: var(--color-laranja);
+  }
+}
+html[data-a11y-motion='reduce'] .prato-abre:hover .prato-foto img {
+  scale: none;
+}
+
+/* ----- agenda: cartaz de evento (arte do post + data grande) ----- */
+.cartaz {
+  border: 2px solid var(--color-creme);
+  border-radius: 6px;
+  background: var(--color-fundo);
+  box-shadow: 0 18px 32px -18px rgb(0 0 0 / 0.9);
+}
+.cartaz-arte {
+  aspect-ratio: 4 / 5;
+  background: #120a06;
+  border-bottom: 2px solid var(--color-creme);
+}
+.cartaz-arte img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+@media (min-width: 768px) {
+  .cartaz.md\:grid .cartaz-arte {
+    border-bottom: 0;
+    border-right: 2px solid var(--color-creme);
+    aspect-ratio: auto;
+    min-height: 100%;
+  }
+}
+html[data-a11y-contrast] .cartaz {
+  background: #000;
+  border-color: #fff;
+}
+
+/* ----- lista de bebidas (modelo 'lista'): miniatura com o fundo original, nome, preço e "+" ----- */
+.lista-bebidas {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  gap: 0 28px;
+  padding: 6px 16px;
+  border: 1.5px solid rgb(239 228 204 / 0.28);
+  border-radius: 8px;
+}
+@container (min-width: 640px) {
+  .lista-bebidas {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    padding: 10px 24px;
+  }
+}
+@container (min-width: 1000px) {
+  .lista-bebidas {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+}
+.bebida {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 10px 0;
+  border-bottom: 1px dashed rgb(239 228 204 / 0.18);
+}
+.bebida-abre {
+  display: flex;
+  min-width: 0;
+  flex: 1 1 auto;
+  align-items: center;
+  gap: 12px;
+  text-align: left;
+  color: inherit;
+}
+.bebida-foto {
+  flex: 0 0 auto;
+  width: 64px;
+  height: 64px;
+  overflow: hidden;
+  border-radius: 6px;
+  background: var(--color-lapide-2);
+}
+.bebida-foto img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.bebida-nome {
+  display: block;
+  font-family: var(--font-display);
+  font-size: 1.05rem;
+  line-height: 1.1;
+  color: var(--color-creme);
+}
+.bebida-desc {
+  display: block;
+  font-size: 12px;
+  line-height: 1.3;
+  color: var(--color-creme-3);
+}
+.bebida-preco {
+  display: block;
+  margin-top: 2px;
+  font-family: var(--font-mono);
+  font-size: 14px;
+  color: var(--color-laranja);
+}
+@media (hover: hover) {
+  .bebida-abre:hover .bebida-nome {
+    color: var(--color-laranja);
+  }
+}
+
+/* ----- quadros embaixo da grade: combo, adicionais, acompanhamentos, molhos ----- */
+.extras {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  gap: 16px;
+}
+@container (min-width: 700px) {
+  .extras {
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  }
+}
+.quadro {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  padding: 18px 20px;
+  border: 1.5px solid rgb(239 228 204 / 0.28);
+  border-radius: 8px;
+  container-type: inline-size;
+}
+.quadro-combo {
+  border-color: rgb(255 183 102 / 0.55);
+}
+.quadro-titulo {
+  margin: 0;
+  font-family: var(--font-display);
+  font-size: 1.3rem;
+  line-height: 1.1;
+  text-transform: uppercase;
+  color: var(--color-laranja);
+  text-decoration: underline;
+  text-decoration-thickness: 2px;
+  text-underline-offset: 6px;
+}
+.quadro-lista {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  gap: 6px 24px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+@container (min-width: 460px) {
+  .quadro-lista.is-2col {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+.quadro-lista:not(.is-2col) {
+  max-width: 26rem;
+}
+.quadro-lista li {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 10px;
+  font-size: 14px;
+  line-height: 1.35;
+  color: var(--color-creme);
+}
+.quadro-preco {
+  font-family: var(--font-mono);
+  font-size: 13px;
+  white-space: nowrap;
+  color: var(--color-laranja);
+}
+
+.grade-lapides {
+  display: grid;
+  grid-template-columns: minmax(0, 17.5rem);
+  justify-content: center;
+  gap: 36px;
+  padding-bottom: 8px;
+}
+@container (min-width: 520px) {
+  .grade-lapides {
+    grid-template-columns: repeat(2, minmax(0, 15.5rem));
+    justify-content: center;
+    gap: 36px 24px;
+  }
+}
+@container (min-width: 700px) {
+  .grade-lapides {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    justify-content: stretch;
+  }
+}
+@container (min-width: 880px) {
+  .grade-lapides {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 44px 28px;
+  }
+}
+
+/* ----- retratos (BBQ, sobremesa, cervejas e bebidas): a foto numa moldura pendurada ----- */
+.grade-retratos {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 32px 14px;
+}
+@container (min-width: 520px) {
+  .grade-retratos {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 40px 22px;
+  }
+}
+@container (min-width: 880px) {
+  .grade-retratos {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 48px 28px;
+  }
+}
+/* BBQ: poucos pratos grandes, retrato maior */
+.grade-retratos.is-destaque {
+  grid-template-columns: minmax(0, 22rem);
+  justify-content: center;
+}
+@container (min-width: 600px) {
+  .grade-retratos.is-destaque {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    justify-content: stretch;
+  }
+}
+@container (min-width: 880px) {
+  .grade-retratos.is-destaque {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+}
+.retrato {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+  padding-top: 22px;
+  container-type: inline-size;
+}
+/* arame e prego: o retrato está pendurado na parede */
+.retrato-arame {
+  position: absolute;
+  top: 0;
+  left: 30%;
+  width: 40%;
+  height: 26px;
+  color: var(--color-creme-2);
+}
+.retrato-moldura {
+  position: relative;
+  padding: 7%;
+  background:
+    linear-gradient(135deg, rgb(255 255 255 / 0.05), transparent 40%),
+    var(--color-lapide-2);
+  border: 3px solid var(--color-creme);
+  outline: 1.5px solid rgb(239 228 204 / 0.45);
+  outline-offset: -11px;
+  box-shadow: 0 16px 30px -14px rgb(0 0 0 / 0.85);
+}
+.retrato-moldura .canto {
+  position: absolute;
+  width: 15%;
+  aspect-ratio: 1;
+  color: var(--color-creme);
+}
+.retrato-moldura .canto.a { top: -3px; left: -3px; }
+.retrato-moldura .canto.b { top: -3px; right: -3px; transform: scaleX(-1); }
+.retrato-moldura .canto.c { bottom: -3px; left: -3px; transform: scaleY(-1); }
+.retrato-moldura .canto.d { bottom: -3px; right: -3px; transform: scale(-1); }
+.retrato-foto {
+  position: relative;
+  overflow: hidden;
+  background: #1e1814;
+  box-shadow: inset 0 0 0 1.5px rgb(0 0 0 / 0.6);
+}
+/* foto inteira: a moldura tem a proporção da própria foto, nada é cortado */
+.retrato-foto img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+/* cervejas e bebidas: quadro quadrado e moldura fina — sai só a sobra de fundo dos lados, a bebida fica maior */
+.retrato.is-quadrada .retrato-moldura {
+  padding: 5%;
+  outline-offset: -7px;
+}
+.retrato.is-quadrada .retrato-foto img {
+  object-fit: cover;
+  object-position: 50% 50%;
+}
+/* plaquinha de pedra embaixo, com cantos chanfrados */
+.retrato-placa {
+  position: relative;
+  margin: -4px 6% 0;
+  padding: 0.85em 0.9em 0.6em;
+  background: var(--color-lapide);
+  border: 2px solid var(--color-creme);
+  border-top-width: 0;
+  clip-path: polygon(0 0, 100% 0, 100% calc(100% - 10px), calc(100% - 10px) 100%, 10px 100%, 0 calc(100% - 10px));
+  text-align: center;
+  flex: 1 1 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.35em;
+}
+/* categoria com um só item (sobremesa): o retrato fica deitado, foto ao lado da plaquinha */
+@container (min-width: 600px) {
+  .grade-retratos.is-destaque.is-unico {
+    grid-template-columns: minmax(0, 46rem);
+    justify-content: center;
+  }
+  .is-unico .retrato {
+    flex-direction: row;
+    align-items: center;
+  }
+  .is-unico .retrato-arame {
+    left: 8%;
+    width: 40%;
+  }
+  .is-unico .retrato-moldura {
+    flex: 0 0 56%;
+    padding: 4%;
+  }
+  .is-unico .retrato-placa {
+    margin: 0 0 0 -4px;
+    padding: 1.4em 1.2em 1em;
+    border-top-width: 2px;
+    border-left-width: 0;
+    clip-path: polygon(0 0, calc(100% - 10px) 0, 100% 10px, 100% calc(100% - 10px), calc(100% - 10px) 100%, 0 100%);
+    justify-content: center;
+    align-self: center;
+  }
+}
+
+@media (hover: hover) {
+  .retrato {
+    transition: translate 0.25s var(--ease-cine);
+  }
+  .retrato:hover {
+    translate: 0 -4px;
+  }
+}
+
+/* barra de categorias */
+.cats::-webkit-scrollbar {
+  display: none;
+}
+.cats {
+  scrollbar-width: none;
+}
+
+/* sem animação para quem pediu menos movimento (sistema ou painel) */
+@media (prefers-reduced-motion: reduce) {
+  .faixa-trilho,
+  .flutua,
+  .sobe-a,
+  .sobe-b,
+  .polaroid .janela > .entra {
+    animation: none !important;
+  }
+  .lapide-giro {
+    transition: none !important;
+  }
+}
+html[data-a11y-motion='reduce'] :is(.faixa-trilho, .flutua, .sobe-a, .sobe-b, .polaroid .janela > .entra) {
+  animation: none !important;
+}
+html[data-a11y-motion='reduce'] .lapide-giro {
+  transition: none !important;
+}
+html[data-a11y-motion='reduce'] :is(.lapide, .retrato):hover {
+  translate: none;
+}
+@media (prefers-reduced-motion: reduce) {
+  :is(.lapide, .retrato):hover {
+    translate: none;
+  }
+}
+/* barra de categorias no celular: a borda direita some aos poucos, indicando que dá para arrastar */
+@media (max-width: 767px) {
+  .cats {
+    mask-image: linear-gradient(90deg, #000 82%, transparent);
+    -webkit-mask-image: linear-gradient(90deg, #000 82%, transparent);
+  }
+}
+
+/* alto contraste: pedras e polaroids em preto e branco */
+html[data-a11y-contrast] {
+  --focus: #ffe08a;
+}
+html[data-a11y-contrast] :is(.bg-fundo, .bg-secao, .bg-barra, .bg-lapide) {
+  background: #000 !important;
+}
+html[data-a11y-contrast] :is(.text-creme-2, .text-creme-3, .text-laranja) {
+  color: #fff !important;
+}
+html[data-a11y-contrast] .lapide-pedra path {
+  fill: #000 !important;
+  stroke: #fff !important;
+  stroke-opacity: 1 !important;
+}
+html[data-a11y-contrast] .lapide-pedra .grao {
+  display: none;
+}
+html[data-a11y-contrast] :is(.retrato-moldura, .retrato-placa) {
+  background: #000 !important;
+  border-color: #fff;
+}
+html[data-a11y-contrast] .lapide-preco {
+  color: #fff;
+}
+html[data-a11y-contrast] :is(.quadro, .lista-bebidas) {
+  background: #000;
+  border-color: #fff;
+}
+html[data-a11y-contrast] :is(.quadro-titulo, .quadro-preco, .bebida-preco, .prato-desc, .bebida-desc) {
+  color: #fff;
+}
+html[data-a11y-contrast] .prato-foto {
+  -webkit-mask-image: none;
+  mask-image: none;
+}
+html[data-a11y-contrast] .laranja {
+  background: #fff !important;
+  --color-char: #000;
+  --color-mute: #000;
+  --color-lilac-ink: #000;
+}
+html[data-a11y-contrast] .bg-mostarda {
+  background: #fff !important;
+  color: #000 !important;
+}
+html[data-a11y-contrast] .gravura {
+  filter: grayscale(1) brightness(1.5);
+}
+html[data-a11y-contrast] .laranja .gravura {
+  filter: grayscale(1) brightness(0.4);
+}
+
+/* seção que recebe o foco ao navegar pelo menu: sem contorno na seção inteira */
+section[tabindex='-1']:focus {
+  outline: none;
+}
+
+/* gravuras com width/height no HTML: a altura acompanha a largura do CSS */
+:where(img.gravura) {
+  height: auto;
+}

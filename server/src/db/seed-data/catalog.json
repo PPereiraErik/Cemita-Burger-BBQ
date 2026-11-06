@@ -1,0 +1,974 @@
+{
+  "source": "src/config/menu.ts (delivery público, conferido em 08/10/2026)",
+  "pricesCheckedAt": "08/10/2026",
+  "categories": [
+    {
+      "slug": "smash",
+      "name": "Smash",
+      "shortName": null,
+      "note": null,
+      "position": 0,
+      "products": [
+        {
+          "slug": "smash-rib",
+          "name": "Smash Rib",
+          "description": "Brioche, maionese da casa, smash crocante, costela defumada desfiada, catupiry, creme cheddar e cebola crua.",
+          "priceCents": 3900,
+          "priceFrom": false,
+          "isAdult": false,
+          "tags": [],
+          "vucaRef": 448,
+          "position": 0
+        },
+        {
+          "slug": "smash-burger",
+          "name": "Smash Burger",
+          "description": "Pão brioche, smash burger de 110g, cheddar, maionese da casa e cebola caramelizada.",
+          "priceCents": 2600,
+          "priceFrom": false,
+          "isAdult": false,
+          "tags": [],
+          "vucaRef": 16,
+          "position": 1
+        },
+        {
+          "slug": "smash-salada",
+          "name": "Smash Salada",
+          "description": "Pão brioche, smash burger de 110g, cheddar, relish de pepino, cebola, alface americana, tomate e molho especial.",
+          "priceCents": 2800,
+          "priceFrom": false,
+          "isAdult": false,
+          "tags": [],
+          "vucaRef": 17,
+          "position": 2
+        },
+        {
+          "slug": "smash-bacon",
+          "name": "Smash Bacon",
+          "description": "Pão brioche, smash burger de 110g, bacon, cheddar e maionese da casa.",
+          "priceCents": 3500,
+          "priceFrom": false,
+          "isAdult": false,
+          "tags": [],
+          "vucaRef": 18,
+          "position": 3
+        },
+        {
+          "slug": "smash-invertido",
+          "name": "Smash Invertido",
+          "description": "Releitura do “patty melt”, tradicional lanche americano: pão brioche invertido, smash burger de 110g “smashado” com cebola, relish de pepino, molho especial e muito cheddar.",
+          "priceCents": 3200,
+          "priceFrom": false,
+          "isAdult": false,
+          "tags": [],
+          "vucaRef": 19,
+          "position": 4
+        },
+        {
+          "slug": "smash-blue-cheese",
+          "name": "Smash Blue Cheese",
+          "description": "Pão brioche, smash burger de 110g, american cheese de gorgonzola, compota de pera defumada e mel picante.",
+          "priceCents": 3700,
+          "priceFrom": false,
+          "isAdult": false,
+          "tags": [],
+          "vucaRef": 20,
+          "position": 5
+        }
+      ]
+    },
+    {
+      "slug": "grelhado",
+      "name": "Burger Grelhado",
+      "shortName": "Grelhado",
+      "note": null,
+      "position": 1,
+      "products": [
+        {
+          "slug": "burger-cemita",
+          "name": "Burger Cemita",
+          "description": "Pão brioche, hambúrguer de 150g, catupiry, frango super crocante, bacon, geleia de pimenta e cheddar.",
+          "priceCents": 5400,
+          "priceFrom": false,
+          "isAdult": false,
+          "tags": [
+            "Leva o nome da casa"
+          ],
+          "vucaRef": 25,
+          "position": 0
+        },
+        {
+          "slug": "burger-bacon-supremo",
+          "name": "Burger Bacon Supremo",
+          "description": "Brioche macio, hambúrguer suculento com fatia obscena de bacon caramelizado, maionese da casa e muçarela derretida.",
+          "priceCents": 5100,
+          "priceFrom": false,
+          "isAdult": false,
+          "tags": [],
+          "vucaRef": 21,
+          "position": 1
+        },
+        {
+          "slug": "burger-bacon-duplo",
+          "name": "Burger Bacon Duplo",
+          "description": "Pão brioche, 2 hambúrgueres de 150g, bacon, cheddar e barbecue da casa.",
+          "priceCents": 5900,
+          "priceFrom": false,
+          "isAdult": false,
+          "tags": [],
+          "vucaRef": 22,
+          "position": 2
+        },
+        {
+          "slug": "burger-costela",
+          "name": "Burger Costela",
+          "description": "Pão brioche, hambúrguer de 150g, costela defumada desfiada, creme cheddar e barbecue da casa.",
+          "priceCents": 5100,
+          "priceFrom": false,
+          "isAdult": false,
+          "tags": [],
+          "vucaRef": 23,
+          "position": 3
+        },
+        {
+          "slug": "hot-bacon",
+          "name": "Hot Bacon",
+          "description": "Pão brioche, hambúrguer de 150g, catupiry, farofa de bacon, pimenta jalapeño e chipotle.",
+          "priceCents": 4400,
+          "priceFrom": false,
+          "isAdult": false,
+          "tags": [],
+          "vucaRef": 24,
+          "position": 4
+        },
+        {
+          "slug": "burger-egg",
+          "name": "Burger Egg",
+          "description": "Pão brioche, hambúrguer de 150g, american cheese de gorgonzola, bacon, ovo com gema mole, mel picante e barbecue da casa.",
+          "priceCents": 4400,
+          "priceFrom": false,
+          "isAdult": false,
+          "tags": [],
+          "vucaRef": 26,
+          "position": 5
+        }
+      ]
+    },
+    {
+      "slug": "bbq",
+      "name": "American BBQ",
+      "shortName": "BBQ",
+      "note": null,
+      "position": 2,
+      "products": [
+        {
+          "slug": "pork-ribs",
+          "name": "Pork Ribs",
+          "description": "Costelinha suína defumada ao molho barbecue da casa, farofinha, salada coleslaw, batata canoa e pão de alho.",
+          "priceCents": 15000,
+          "priceFrom": false,
+          "isAdult": false,
+          "tags": [],
+          "vucaRef": 12,
+          "position": 0
+        },
+        {
+          "slug": "beef-ribs",
+          "name": "Beef Ribs",
+          "description": "Costela bovina defumada, farofinha, salada coleslaw, batata canoa e pão de alho.",
+          "priceCents": 17000,
+          "priceFrom": false,
+          "isAdult": false,
+          "tags": [],
+          "vucaRef": 13,
+          "position": 1
+        },
+        {
+          "slug": "brisket",
+          "name": "Brisket",
+          "description": "O corte mais tradicional do churrasco americano, com farofinha, salada coleslaw, batata canoa e pão de alho.",
+          "priceCents": 18000,
+          "priceFrom": false,
+          "isAdult": false,
+          "tags": [],
+          "vucaRef": 14,
+          "position": 2
+        }
+      ]
+    },
+    {
+      "slug": "sanduiches",
+      "name": "Sanduíches",
+      "shortName": null,
+      "note": null,
+      "position": 3,
+      "products": [
+        {
+          "slug": "sanduiche-costela",
+          "name": "Sanduíche de Costela Defumada",
+          "description": "Baguetinha de parmesão, costela desfiada e defumada, catupiry, maionese da casa e tomate defumado com chimichurri.",
+          "priceCents": 5500,
+          "priceFrom": false,
+          "isAdult": false,
+          "tags": [],
+          "vucaRef": 28,
+          "position": 0
+        },
+        {
+          "slug": "sanduiche-pulled-pork",
+          "name": "Sanduíche de Pulled Pork",
+          "description": "Baguetinha de parmesão, copa-lombo suíno, salada coleslaw e maionese da casa.",
+          "priceCents": 3900,
+          "priceFrom": false,
+          "isAdult": false,
+          "tags": [],
+          "vucaRef": 27,
+          "position": 1
+        },
+        {
+          "slug": "sanduiche-frango",
+          "name": "Sanduíche de Frango Crocante",
+          "description": "Baguetinha de parmesão, frango crocante marinado em cerveja Stannis Irish Red Ale, salada coleslaw e barbecue da casa.",
+          "priceCents": 3600,
+          "priceFrom": false,
+          "isAdult": false,
+          "tags": [],
+          "vucaRef": 29,
+          "position": 2
+        },
+        {
+          "slug": "choripan",
+          "name": "Choripan",
+          "description": "Baguetinha de parmesão, linguiça artesanal defumada, tomate defumado com chimichurri, parmesão ralado e mel picante.",
+          "priceCents": 4000,
+          "priceFrom": false,
+          "isAdult": false,
+          "tags": [],
+          "vucaRef": 30,
+          "position": 3
+        }
+      ]
+    },
+    {
+      "slug": "entradas",
+      "name": "Entradas",
+      "shortName": null,
+      "note": null,
+      "position": 4,
+      "products": [
+        {
+          "slug": "croqueta-costela",
+          "name": "Croqueta de Costela Defumada",
+          "description": "6 unidades de croqueta cremosa de costela defumada.",
+          "priceCents": 4200,
+          "priceFrom": false,
+          "isAdult": false,
+          "tags": [],
+          "vucaRef": 6,
+          "position": 0
+        },
+        {
+          "slug": "buffalo-wings",
+          "name": "Buffalo Wings",
+          "description": "10 unidades de tulipa defumada ao molho barbecue da casa.",
+          "priceCents": 4000,
+          "priceFrom": false,
+          "isAdult": false,
+          "tags": [],
+          "vucaRef": 3,
+          "position": 1
+        },
+        {
+          "slug": "croqueta-pulled-pork",
+          "name": "Croqueta de Pulled Pork",
+          "description": "6 unidades de croqueta cremosa de pulled pork.",
+          "priceCents": 3500,
+          "priceFrom": false,
+          "isAdult": false,
+          "tags": [],
+          "vucaRef": 5,
+          "position": 2
+        },
+        {
+          "slug": "panceta-crocante",
+          "name": "Panceta Crocante",
+          "description": "Panceta suína defumada crocante.",
+          "priceCents": 3500,
+          "priceFrom": false,
+          "isAdult": false,
+          "tags": [],
+          "vucaRef": 4,
+          "position": 3
+        },
+        {
+          "slug": "chick-n-chips",
+          "name": "Chick N' Chips",
+          "description": null,
+          "priceCents": 4500,
+          "priceFrom": false,
+          "isAdult": false,
+          "tags": [],
+          "vucaRef": 460,
+          "position": 4
+        },
+        {
+          "slug": "empanadinho-frango",
+          "name": "Empanadinho de Frango",
+          "description": "10 unidades.",
+          "priceCents": 2500,
+          "priceFrom": false,
+          "isAdult": false,
+          "tags": [],
+          "vucaRef": 1,
+          "position": 5
+        },
+        {
+          "slug": "fritas-especiais",
+          "name": "Fritas Especiais",
+          "description": "Com tempero da casa, bacon e cheddar.",
+          "priceCents": 3900,
+          "priceFrom": true,
+          "isAdult": false,
+          "tags": [],
+          "vucaRef": 8,
+          "position": 6
+        },
+        {
+          "slug": "fritas",
+          "name": "Fritas",
+          "description": "Com tempero da casa. Individual.",
+          "priceCents": 1500,
+          "priceFrom": true,
+          "isAdult": false,
+          "tags": [],
+          "vucaRef": 10,
+          "position": 7
+        }
+      ]
+    },
+    {
+      "slug": "vegetariano",
+      "name": "Vegetariano",
+      "shortName": "Veg",
+      "note": null,
+      "position": 5,
+      "products": [
+        {
+          "slug": "burger-veg",
+          "name": "Burger Veg",
+          "description": "Pão brioche, hambúrguer do futuro, cheddar, maionese da casa e cebola caramelizada.",
+          "priceCents": 3600,
+          "priceFrom": false,
+          "isAdult": false,
+          "tags": [],
+          "vucaRef": 381,
+          "position": 0
+        },
+        {
+          "slug": "burger-salada-veg",
+          "name": "Burger Salada Veg",
+          "description": "Pão brioche, hambúrguer do futuro, cheddar, relish de pepino, cebola, alface americana, tomate e molho especial.",
+          "priceCents": 3800,
+          "priceFrom": false,
+          "isAdult": false,
+          "tags": [],
+          "vucaRef": 380,
+          "position": 1
+        },
+        {
+          "slug": "burger-invertido-veg",
+          "name": "Burger Invertido Veg",
+          "description": "Releitura do patty melt: pão brioche invertido, hambúrguer do futuro, cebola, molho especial e muito cheddar.",
+          "priceCents": 4200,
+          "priceFrom": false,
+          "isAdult": false,
+          "tags": [],
+          "vucaRef": 379,
+          "position": 2
+        },
+        {
+          "slug": "burger-blue-cheese-veg",
+          "name": "Burger Blue Cheese Veg",
+          "description": "Pão brioche, hambúrguer do futuro, cheddar, maionese da casa e cebola caramelizada.",
+          "priceCents": 4500,
+          "priceFrom": false,
+          "isAdult": false,
+          "tags": [],
+          "vucaRef": 378,
+          "position": 3
+        }
+      ]
+    },
+    {
+      "slug": "sobremesas",
+      "name": "Sobremesas",
+      "shortName": "Doces",
+      "note": null,
+      "position": 6,
+      "products": [
+        {
+          "slug": "pudim",
+          "name": "Pudim",
+          "description": "De leite condensado.",
+          "priceCents": 1500,
+          "priceFrom": false,
+          "isAdult": false,
+          "tags": [
+            "Favorito"
+          ],
+          "vucaRef": 47,
+          "position": 0
+        }
+      ]
+    },
+    {
+      "slug": "cervejas",
+      "name": "Cervejas & Chopp",
+      "shortName": "Cervejas",
+      "note": "Venda proibida para menores de 18 anos.",
+      "position": 7,
+      "products": [
+        {
+          "slug": "growler-vinho",
+          "name": "Growler de Chopp de Vinho 1L",
+          "description": "Chopp de vinho da cervejaria Zeit.",
+          "priceCents": 4500,
+          "priceFrom": false,
+          "isAdult": true,
+          "tags": [],
+          "vucaRef": 442,
+          "position": 0
+        },
+        {
+          "slug": "growler-pilsen",
+          "name": "Growler de Chopp Pilsen 1L",
+          "description": null,
+          "priceCents": 4000,
+          "priceFrom": false,
+          "isAdult": true,
+          "tags": [],
+          "vucaRef": 438,
+          "position": 1
+        },
+        {
+          "slug": "stannis-ipa",
+          "name": "IPA — Stannis",
+          "description": null,
+          "priceCents": 2100,
+          "priceFrom": false,
+          "isAdult": true,
+          "tags": [],
+          "vucaRef": 422,
+          "position": 2
+        },
+        {
+          "slug": "stannis-blond",
+          "name": "Belgian Blond Ale — Stannis",
+          "description": null,
+          "priceCents": 1700,
+          "priceFrom": false,
+          "isAdult": true,
+          "tags": [],
+          "vucaRef": 418,
+          "position": 3
+        },
+        {
+          "slug": "stannis-apa",
+          "name": "APA — Stannis",
+          "description": null,
+          "priceCents": 1500,
+          "priceFrom": false,
+          "isAdult": true,
+          "tags": [],
+          "vucaRef": 414,
+          "position": 4
+        },
+        {
+          "slug": "stannis-weiss",
+          "name": "Weiss — Stannis",
+          "description": null,
+          "priceCents": 1500,
+          "priceFrom": false,
+          "isAdult": true,
+          "tags": [],
+          "vucaRef": 410,
+          "position": 5
+        },
+        {
+          "slug": "stannis-red",
+          "name": "Red Ale — Stannis",
+          "description": null,
+          "priceCents": 1500,
+          "priceFrom": false,
+          "isAdult": true,
+          "tags": [],
+          "vucaRef": 406,
+          "position": 6
+        },
+        {
+          "slug": "heineken",
+          "name": "Heineken",
+          "description": null,
+          "priceCents": 1500,
+          "priceFrom": false,
+          "isAdult": true,
+          "tags": [],
+          "vucaRef": 434,
+          "position": 7
+        },
+        {
+          "slug": "heineken-zero",
+          "name": "Heineken Zero",
+          "description": null,
+          "priceCents": 1500,
+          "priceFrom": false,
+          "isAdult": true,
+          "tags": [],
+          "vucaRef": 430,
+          "position": 8
+        }
+      ]
+    },
+    {
+      "slug": "bebidas",
+      "name": "Bebidas",
+      "shortName": null,
+      "note": null,
+      "position": 8,
+      "products": [
+        {
+          "slug": "red-bull",
+          "name": "Red Bull 250ml",
+          "description": null,
+          "priceCents": 2000,
+          "priceFrom": false,
+          "isAdult": false,
+          "tags": [],
+          "vucaRef": 449,
+          "position": 0
+        },
+        {
+          "slug": "monster",
+          "name": "Monster 473ml",
+          "description": "Lata 473ml.",
+          "priceCents": 1500,
+          "priceFrom": true,
+          "isAdult": false,
+          "tags": [],
+          "vucaRef": 400,
+          "position": 1
+        },
+        {
+          "slug": "suco-uva",
+          "name": "Suco Del Valle de Uva",
+          "description": null,
+          "priceCents": 1500,
+          "priceFrom": false,
+          "isAdult": false,
+          "tags": [],
+          "vucaRef": 394,
+          "position": 2
+        },
+        {
+          "slug": "suco-laranja",
+          "name": "Suco Integral de Laranja",
+          "description": null,
+          "priceCents": 1200,
+          "priceFrom": false,
+          "isAdult": false,
+          "tags": [],
+          "vucaRef": 395,
+          "position": 3
+        },
+        {
+          "slug": "caldo-cana",
+          "name": "Caldo de Cana",
+          "description": "Simmmm! Temos caldo de cana!",
+          "priceCents": 1500,
+          "priceFrom": false,
+          "isAdult": false,
+          "tags": [],
+          "vucaRef": null,
+          "position": 4
+        },
+        {
+          "slug": "coca",
+          "name": "Coca-Cola lata 310ml",
+          "description": null,
+          "priceCents": 700,
+          "priceFrom": false,
+          "isAdult": false,
+          "tags": [],
+          "vucaRef": 386,
+          "position": 5
+        },
+        {
+          "slug": "coca-zero",
+          "name": "Coca-Cola Zero lata 310ml",
+          "description": null,
+          "priceCents": 700,
+          "priceFrom": false,
+          "isAdult": false,
+          "tags": [],
+          "vucaRef": 385,
+          "position": 6
+        },
+        {
+          "slug": "guarana",
+          "name": "Guaraná Antarctica 350ml",
+          "description": null,
+          "priceCents": 700,
+          "priceFrom": false,
+          "isAdult": false,
+          "tags": [],
+          "vucaRef": 389,
+          "position": 7
+        },
+        {
+          "slug": "guarana-zero",
+          "name": "Guaraná Antarctica Zero 350ml",
+          "description": null,
+          "priceCents": 700,
+          "priceFrom": false,
+          "isAdult": false,
+          "tags": [],
+          "vucaRef": 388,
+          "position": 8
+        },
+        {
+          "slug": "sprite",
+          "name": "Sprite 350ml",
+          "description": null,
+          "priceCents": 700,
+          "priceFrom": false,
+          "isAdult": false,
+          "tags": [],
+          "vucaRef": 390,
+          "position": 9
+        },
+        {
+          "slug": "sprite-zero",
+          "name": "Sprite Zero 350ml",
+          "description": null,
+          "priceCents": 700,
+          "priceFrom": false,
+          "isAdult": false,
+          "tags": [],
+          "vucaRef": 391,
+          "position": 10
+        },
+        {
+          "slug": "tonica",
+          "name": "Água Tônica Schweppes 350ml",
+          "description": null,
+          "priceCents": 700,
+          "priceFrom": false,
+          "isAdult": false,
+          "tags": [],
+          "vucaRef": 392,
+          "position": 11
+        },
+        {
+          "slug": "schweppes-citrus",
+          "name": "Schweppes Citrus 350ml",
+          "description": null,
+          "priceCents": 700,
+          "priceFrom": false,
+          "isAdult": false,
+          "tags": [],
+          "vucaRef": 393,
+          "position": 12
+        },
+        {
+          "slug": "agua",
+          "name": "Água mineral sem gás",
+          "description": null,
+          "priceCents": 500,
+          "priceFrom": false,
+          "isAdult": false,
+          "tags": [],
+          "vucaRef": 398,
+          "position": 13
+        },
+        {
+          "slug": "agua-gas",
+          "name": "Água mineral com gás 500ml",
+          "description": null,
+          "priceCents": 500,
+          "priceFrom": false,
+          "isAdult": false,
+          "tags": [],
+          "vucaRef": 397,
+          "position": 14
+        }
+      ]
+    }
+  ],
+  "combo": {
+    "priceCents": 1599,
+    "note": "Monte seu Combo (smash, burger grelhado ou sanduíche): fritas individual + bebida",
+    "includes": "Fritas individual + uma bebida à sua escolha",
+    "drinks": [
+      "Água tônica Schweppes 350ml",
+      "Schweppes Citrus 350ml",
+      "Coca-Cola",
+      "Coca-Cola Zero",
+      "Guaraná Antarctica 350ml",
+      "Guaraná Antarctica Zero",
+      "Sprite 350ml",
+      "Sprite Zero 350ml",
+      "Água Crystal 500ml",
+      "Água com gás Crystal 510ml"
+    ]
+  },
+  "options": {
+    "groups": [
+      {
+        "key": "ponto",
+        "name": "Escolha o ponto da sua carne",
+        "minSelect": 1,
+        "maxSelect": 1,
+        "items": [
+          {
+            "name": "Vermelha por dentro",
+            "priceCents": 0
+          },
+          {
+            "name": "Cinza por dentro",
+            "priceCents": 0
+          }
+        ]
+      },
+      {
+        "key": "adicional",
+        "name": "Vai um adicional aí?",
+        "minSelect": 0,
+        "maxSelect": 4,
+        "items": [
+          {
+            "name": "Queijo gorgonzola",
+            "priceCents": 1200
+          },
+          {
+            "name": "Muçarela",
+            "priceCents": 800
+          },
+          {
+            "name": "Cheddar",
+            "priceCents": 800
+          },
+          {
+            "name": "Cebola caramelizada",
+            "priceCents": 600
+          },
+          {
+            "name": "Bacon",
+            "priceCents": 800
+          },
+          {
+            "name": "Tomate",
+            "priceCents": 600
+          },
+          {
+            "name": "Alface",
+            "priceCents": 600
+          },
+          {
+            "name": "Frango crocante",
+            "priceCents": 900
+          },
+          {
+            "name": "Ovo",
+            "priceCents": 500
+          },
+          {
+            "name": "Pimenta jalapeño",
+            "priceCents": 500
+          },
+          {
+            "name": "Picles",
+            "priceCents": 500
+          }
+        ]
+      },
+      {
+        "key": "molho",
+        "name": "Molhos",
+        "minSelect": 0,
+        "maxSelect": 3,
+        "items": [
+          {
+            "name": "Chipotle",
+            "priceCents": 800
+          },
+          {
+            "name": "Barbecue",
+            "priceCents": 800
+          },
+          {
+            "name": "Molho especial da casa (sabor Mc, rsrs)",
+            "priceCents": 800
+          },
+          {
+            "name": "Maionese grill (defumada)",
+            "priceCents": 800
+          },
+          {
+            "name": "Cheddar",
+            "priceCents": 800
+          },
+          {
+            "name": "Maionese especial da casa",
+            "priceCents": 600
+          }
+        ]
+      },
+      {
+        "key": "fritas",
+        "name": "Quero batatinha frita!",
+        "minSelect": 0,
+        "maxSelect": 1,
+        "items": [
+          {
+            "name": "Fritas individual",
+            "priceCents": 1500
+          }
+        ]
+      },
+      {
+        "key": "carne-smash",
+        "name": "Adicional de carne smash",
+        "minSelect": 0,
+        "maxSelect": 1,
+        "items": [
+          {
+            "name": "Carne 110g",
+            "priceCents": 1000
+          }
+        ]
+      },
+      {
+        "key": "carne-grelhado",
+        "name": "Adicional de carne",
+        "minSelect": 0,
+        "maxSelect": 1,
+        "items": [
+          {
+            "name": "Carne 150g",
+            "priceCents": 1500
+          }
+        ]
+      },
+      {
+        "key": "carne-vegana",
+        "name": "Adicional de carne vegana",
+        "minSelect": 0,
+        "maxSelect": 1,
+        "items": [
+          {
+            "name": "Carne vegana",
+            "priceCents": 1000
+          }
+        ]
+      },
+      {
+        "key": "sobremesa",
+        "name": "Sobremesa",
+        "minSelect": 0,
+        "maxSelect": 1,
+        "items": [
+          {
+            "name": "Pudim de leite condensado",
+            "priceCents": 1200
+          }
+        ]
+      },
+      {
+        "key": "acompanhamento",
+        "name": "Acompanhamento adicional",
+        "minSelect": 0,
+        "maxSelect": 3,
+        "items": [
+          {
+            "name": "Batata canoa (porção)",
+            "priceCents": 3500
+          },
+          {
+            "name": "Coleslaw",
+            "priceCents": 1200
+          },
+          {
+            "name": "Farofa",
+            "priceCents": 800
+          },
+          {
+            "name": "Conserva de pimenta jalapeño",
+            "priceCents": 1000
+          },
+          {
+            "name": "Relish de pepino",
+            "priceCents": 1000
+          },
+          {
+            "name": "Pão de alho",
+            "priceCents": 2000
+          }
+        ]
+      }
+    ],
+    "byCategory": {
+      "smash": {
+        "groups": [
+          "adicional",
+          "fritas",
+          "carne-smash",
+          "carne-vegana"
+        ],
+        "source": "visto"
+      },
+      "grelhado": {
+        "groups": [
+          "ponto",
+          "adicional",
+          "fritas",
+          "carne-grelhado",
+          "carne-vegana"
+        ],
+        "source": "inferido"
+      },
+      "sanduiches": {
+        "groups": [
+          "adicional",
+          "fritas"
+        ],
+        "source": "inferido"
+      },
+      "vegetariano": {
+        "groups": [
+          "adicional",
+          "molho",
+          "fritas",
+          "sobremesa"
+        ],
+        "source": "visto"
+      },
+      "bbq": {
+        "groups": [
+          "fritas",
+          "acompanhamento"
+        ],
+        "source": "visto"
+      }
+    }
+  },
+  "hours": [
+    {
+      "days": "Terça a domingo",
+      "time": "18h às 23h"
+    },
+    {
+      "days": "Segunda",
+      "time": "Fechado"
+    }
+  ]
+}

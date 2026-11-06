@@ -1,0 +1,7 @@
+node_modules/
+.env
+.env.*
+!.env.example
+.export-menu.tmp.mjs
+coverage/
+!.env.test.example

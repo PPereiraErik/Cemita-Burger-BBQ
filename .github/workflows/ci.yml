@@ -1,0 +1,67 @@
+# Testes automáticos a cada envio para o GitHub (e em cada pull request).
+# No Railway, ligue "Wait for CI" no serviço: se algum teste falhar, a versão nova não é publicada.
+name: testes
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+jobs:
+  site:
+    name: Site e painel
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      - run: npm install --no-audit --no-fund
+      - name: Testes do site
+        run: npm test
+      - name: Build (o mesmo da publicação)
+        run: npm run build
+        env:
+          VITE_API_URL: /api/v1
+
+  api:
+    name: API e banco
+    runs-on: ubuntu-latest
+    services:
+      mysql:
+        image: mysql:8.4
+        env:
+          MYSQL_ROOT_PASSWORD: root_ci
+          MYSQL_DATABASE: cemita_test
+          MYSQL_USER: cemita
+          MYSQL_PASSWORD: cemita_ci
+        ports: ['3306:3306']
+        options: >-
+          --health-cmd="mysqladmin ping -h 127.0.0.1 -uroot -proot_ci"
+          --health-interval=5s --health-timeout=5s --health-retries=20
+    defaults:
+      run:
+        working-directory: server
+    env:
+      NODE_ENV: test
+      LOG_LEVEL: silent
+      DATABASE_URL: mysql://cemita:cemita_ci@127.0.0.1:3306/cemita_test
+      CORS_ORIGINS: http://localhost:5173
+      TRACKING_TOKEN_SECRET: test-somente-ci-000000000000000000000000000
+      AUTH_SCRYPT_LOG_N: 14
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      - run: npm install --no-audit --no-fund
+      - name: Testes da API (unidade + integração com MySQL)
+        run: npm test
+
+  imagem:
+    name: Imagem de publicação
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Monta a imagem Docker (a mesma do Railway)
+        run: docker build -t cemita .

@@ -1,0 +1,33 @@
+{
+  "name": "cemita-server",
+  "version": "0.1.0",
+  "private": true,
+  "description": "API de pedidos da Cemita Burger & BBQ (Node.js + Express + Sequelize + MySQL)",
+  "type": "module",
+  "engines": {
+    "node": ">=22.12"
+  },
+  "scripts": {
+    "dev": "node --env-file-if-exists=.env --watch src/server.js",
+    "start": "node src/server.js",
+    "db:migrate": "node --env-file-if-exists=.env scripts/db.js migrate",
+    "db:rollback": "node --env-file-if-exists=.env scripts/db.js rollback",
+    "db:status": "node --env-file-if-exists=.env scripts/db.js status",
+    "db:seed": "node --env-file-if-exists=.env scripts/db.js seed",
+    "db:seed:dev": "node --env-file-if-exists=.env scripts/db.js seed:dev",
+    "admin:create": "node --env-file-if-exists=.env scripts/admin.js create",
+    "deploy:prepare": "node --env-file-if-exists=.env scripts/deploy.js",
+    "test": "node --env-file-if-exists=.env.test --test --test-concurrency=1 \"tests/**/*.test.js\"",
+    "test:unit": "node --test \"tests/unit/**/*.test.js\""
+  },
+  "dependencies": {
+    "express": "^5.1.0",
+    "helmet": "^8.1.0",
+    "mysql2": "^3.14.0",
+    "pino": "^9.7.0",
+    "pino-http": "^10.5.0",
+    "sequelize": "^6.37.7",
+    "umzug": "^3.8.2",
+    "zod": "^3.25.0"
+  }
+}
